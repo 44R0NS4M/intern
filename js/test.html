@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    
+    var tkls = [];
+    
+    function addtsk(){
+        
+        
+        var tsk=document.getElementById("tsk").value;
+        tkls.push(tsk);
+        
+        
+        var list=document.getElementById("tdls");
+        for(i=tkls.length-1;i>=0;i--)
+        {
+            let lidiv = document.createElement('div');
+            lidiv.id = "dvls" + i;
+            let li = document.createElement('li');
+            let bt = document.createElement('button');
+            li.id = "ls" + i;
+            bt.id = "b" + i;
+            bt.innerText = "Completed";
+            bt.onclick = function(id) 
+            {
+                len=list.length;
+                document.getElementById(li.id).style.setProperty("text-decoration", "line-through");
+                
+                var compls = document.getElementById(lidiv.id);
+                
+
+                if(compls.length > 0)
+                {
+                    
+                    for(i=compls.length;i>=0;i--)
+                    {
+                        let clr = document.getElementById('Clear');
+                        clr.onclick = function()
+                        {
+                            compls.innerHTML=""; 
+                        }
+                    }
+                }
+                
+  
+                //     for(i=0;i<=list.length;i++)
+                //     {
+                //         var index = list.indexOf(cmpls[i])
+                //         if(index>-1)
+                //         {
+                //             list.splice(index,1)
+                //         }
+                //     }
+            
+                //     }
+
+                let clr = document.getElementById('Clear');
+                
+                clr.onclick = function()
+                {
+                    
+                    compls.innerHTML=""; 
+                }
+            }
+            li.innerText = tkls[i];
+            li.appendChild(bt);
+            lidiv.appendChild(li);
+            list.appendChild(lidiv);
+            list.pop();
+            
+            
+        }
+    }
+    
+
+
+  </script>
+</head>
+
+<body>
+  <h1>TO DO</h1>
+  <div class="container">
+    <div id="newtask">
+    
+      <input type="text" placeholder="Add Tasks" id="tsk">
+      <button onclick="addtsk()">Add</button>
+    </div>
+
+    <div id="tasks">
+        <ul id="tdls">
+            
+        </ul>
+        <button id="Clear">Clear</button>
+    </div>
+  </div>
+</body>
+
+</html>

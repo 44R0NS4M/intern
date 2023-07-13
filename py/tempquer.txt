@@ -1,0 +1,14 @@
+CREATE PROCEDURE trnx(
+     id INT,
+     date date,
+     pid INT,
+     cat varchar(255),
+     qty INT,
+     price INT,
+     sold INT,
+     revenue INT,
+     
+)
+language sql
+as &
+begin
