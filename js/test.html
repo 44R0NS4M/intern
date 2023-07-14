@@ -19,6 +19,7 @@
         
         
         var list=document.getElementById("tdls");
+        var list2=document.getElementById("cmpls");
         for(i=tkls.length-1;i>=0;i--)
         {
             let lidiv = document.createElement('div');
@@ -28,26 +29,28 @@
             li.id = "ls" + i;
             bt.id = "b" + i;
             bt.innerText = "Completed";
-            bt.onclick = function(id) 
+            bt.onclick = function() 
             {
-                len=list.length;
+                
+                
+                lidiv.className = "completed";
+                var moveTo = lidiv.children[0];
+                list2.appendChild(moveTo);
                 document.getElementById(li.id).style.setProperty("text-decoration", "line-through");
-                
-                var compls = document.getElementById(lidiv.id);
-                
+                var compls = document.getElementsByClassName("completed");
+                len=compls.length;
 
-                if(compls.length > 0)
-                {
                     
-                    for(i=compls.length;i>=0;i--)
-                    {
                         let clr = document.getElementById('Clear');
                         clr.onclick = function()
                         {
-                            compls.innerHTML=""; 
+                           
+                          // while(compls.length > 0){
+                          //   compls[0].parentNode.removeChild(compls[0]);}
+                          list2.innerHTML="";
                         }
-                    }
-                }
+                    
+                //}
                 
   
                 //     for(i=0;i<=list.length;i++)
@@ -61,13 +64,13 @@
             
                 //     }
 
-                let clr = document.getElementById('Clear');
+                // let clr = document.getElementById('Clear');
                 
-                clr.onclick = function()
-                {
+                // clr.onclick = function()
+                // {
                     
-                    compls.innerHTML=""; 
-                }
+                //     compls.innerHTML=""; 
+                // }
             }
             li.innerText = tkls[i];
             li.appendChild(bt);
@@ -79,6 +82,10 @@
         }
     }
     
+    function compltd()
+    {
+
+    }
 
 
   </script>
@@ -97,6 +104,8 @@
         <ul id="tdls">
             
         </ul>
+
+        <ul id="cmpls" style="background-color: tomato;"></ul>
         <button id="Clear">Clear</button>
     </div>
   </div>
