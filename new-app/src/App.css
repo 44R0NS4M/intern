@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+.grid {
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.card {
+    width:20%;
+    height:450px;
+    float: left;
+    padding: 20px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+img{
+  width: 100px;
+}
+
+input{
+  
+  width:90%;
+  padding: 10px;
+  height: 10px;
+  
+}
+
+.sidebar {
+  height: 100%;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 40px;
+  background-color: lightblue;
+  }
+  
+  .sidebar div {
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+  }
+  
+  .body-text {
+  margin-left: 150px;
+  font-size: 18px;
+  }

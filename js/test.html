@@ -2,22 +2,18 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
     
     var tkls = [];
-    
+
     function addtsk(){
-        
-        
         var tsk=document.getElementById("tsk").value;
         tkls.push(tsk);
-        
-        
         var list=document.getElementById("tdls");
         var list2=document.getElementById("cmpls");
         for(i=tkls.length-1;i>=0;i--)
@@ -31,84 +27,64 @@
             bt.innerText = "Completed";
             bt.onclick = function() 
             {
-                
-                
                 lidiv.className = "completed";
                 var moveTo = lidiv.children[0];
                 list2.appendChild(moveTo);
                 document.getElementById(li.id).style.setProperty("text-decoration", "line-through");
                 var compls = document.getElementsByClassName("completed");
-                len=compls.length;
-
-                    
-                        let clr = document.getElementById('Clear');
-                        clr.onclick = function()
-                        {
-                           
-                          // while(compls.length > 0){
+                len=compls.length;                    
+                let clr = document.getElementById('Clear');
+                clr.onclick = function()
+                {
+                    // while(compls.length > 0){
                           //   compls[0].parentNode.removeChild(compls[0]);}
-                          list2.innerHTML="";
-                        }
-                    
-                //}
-                
-  
-                //     for(i=0;i<=list.length;i++)
-                //     {
-                //         var index = list.indexOf(cmpls[i])
-                //         if(index>-1)
-                //         {
-                //             list.splice(index,1)
-                //         }
-                //     }
-            
-                //     }
-
-                // let clr = document.getElementById('Clear');
-                
-                // clr.onclick = function()
-                // {
-                    
-                //     compls.innerHTML=""; 
-                // }
+                    list2.innerHTML="";
+                }   
             }
             li.innerText = tkls[i];
             li.appendChild(bt);
             lidiv.appendChild(li);
             list.appendChild(lidiv);
+            flist.appendChild(li);
+            flist.appendChild(compls.li);
+            return flist;
             list.pop();
-            
-            
         }
     }
     
-    function compltd()
+    function srchtsk(flist)
     {
-
+        var stk = document.getElementById("stk").value;
+        const elements = document.querySelectorAll(flist);
+        while(elements.length>0){
+            foreach
+        }
     }
 
 
-  </script>
+    </script>
 </head>
 
 <body>
-  <h1>TO DO</h1>
-  <div class="container">
-    <div id="newtask">
+    <h1>TO DO</h1>
+    <div class="container">
+        <div id="newtask">
     
-      <input type="text" placeholder="Add Tasks" id="tsk">
-      <button onclick="addtsk()">Add</button>
-    </div>
+            <input type="text" placeholder="Add Tasks" id="tsk">
+            <button onclick="flist = addtsk()">Add</button>
 
-    <div id="tasks">
-        <ul id="tdls">
-            
-        </ul>
+            <input type="text" placeholder="Search Tasks" id="stk">
+            <button onclick="srchtsk(flist)">Search</button>
 
-        <ul id="cmpls" style="background-color: tomato;"></ul>
-        <button id="Clear">Clear</button>
+        </div>
+
+        <div id="tasks">
+            <ul id="tdls"></ul>
+
+            <ul id="cmpls" style="background-color: tomato;"></ul>
+            <button id="Clear">Clear</button>
+        </div>
     </div>
-  </div>
 </body>
 
 </html>
